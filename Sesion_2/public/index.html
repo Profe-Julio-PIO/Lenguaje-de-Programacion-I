@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: orange;
+    }
+
+    #formDatos{
+        height: 1vh;
+        width: auto;
+        text-align: center;
+    }
+
+    .btnEnviar{
+        border-radius: 3px;
+        color: white;
+        background-color: black;
+    }
+</style>
+<body>
+    <form action="recuperar_datos" method="post" id="formDatos">
+      <input type="text" name="nombre" size="30" placeholder="Ingrese su nombre de usuario" required><br><br>
+      <input type="password" name="clave" size="30" placeholder="Ingrese clave"><br><br>
+      <input type="submit" value="Enviar" class="btnEnviar">  
+    </form>
+</body>
+</html>

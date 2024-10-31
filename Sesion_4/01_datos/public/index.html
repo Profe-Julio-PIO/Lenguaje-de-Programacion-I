@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 20px;
+        }
+
+        form {
+            max-width: 600px; 
+            margin: 20px auto; 
+            padding: 20px; 
+            background-color: #f5f5f5; 
+            border: 1px solid #ddd; 
+            border-radius: 8px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+        }
+
+        p{
+            text-align: center;
+            font-size: 16px; 
+            line-height: 1.5; 
+            color: #333; 
+            margin-bottom: 15px;
+        }
+
+        input { 
+            width: 100%; 
+            padding: 10px; 
+            margin-bottom: 15px; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            font-size: 16px; 
+            box-sizing: border-box; 
+        }
+
+        .btnMostrar{
+            border-radius: 3px;
+            color: white;
+            background-color: blue;
+        }
+        
+    </style>
+</head>
+<body>
+    <p>Mostrar los números comprendidos entre los dos valores ingresados de uno en uno</p>
+    <form action="mostrar_numeros" method="post">
+        <input type="text" name="numero1"  size="30" placeholder="Ingrese número inferior" required><br><br>
+        <input type="text" name="numero2"  size="30" placeholder="Ingrese número superior" required><br><br>
+        <input type="submit" value="Mostrar" class="btnMostrar">
+    </form>
+</body>
+</html>
