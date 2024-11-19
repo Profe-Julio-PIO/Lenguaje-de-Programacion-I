@@ -112,6 +112,11 @@ h3{
   background-color: rgb(219, 95, 12);
 }
 
+.error{
+  color: red;
+  margin-left: 15px;
+}
+
 .popuplabel{
   margin-right: 274px;
 }

@@ -46,8 +46,8 @@ app.get('/estudiantes',(req,res)=>{
 
 /* Listar estudiantes por código */
 app.get('/estudiantes/:estudianteId',(req,res)=>{
-    const estId = Number(req.params.estudianteId);
-    const sql = 'SELECT * FROM estudiantes WHERE "estudianteId"=$1';
+    const estId = Number(req.params.estudiantesId);
+    const sql = 'SELECT * FROM estudiantes WHERE "estudiantesId"=$1';
     pool.query(sql,[estId],(error,resultado)=>{
         if(error) return res.json(error);
         return res.status(200).json(resultado.rows[0]);
@@ -56,9 +56,9 @@ app.get('/estudiantes/:estudianteId',(req,res)=>{
 
 /* Insertar estudiantes */
 app.post('/estudiantes',(req,res)=>{
-    const {nombre,major,email} = req.body
-    const sql = 'INSERT INTO estudiantes(nombre,major,email) VALUES($1,$2,$3) RETURNING *';
-    pool.query(sql,[nombre,major,email],(error,resultado)=>{
+    const {nombre,asignatura,email} = req.body
+    const sql = 'INSERT INTO estudiantes(nombre,asignatura,email) VALUES($1,$2,$3) RETURNING *';
+    pool.query(sql,[nombre,asignatura,email],(error,resultado)=>{
         if(error) return res.json(error);
         return res.status(200).json(resultado.rows);
     })
@@ -67,9 +67,9 @@ app.post('/estudiantes',(req,res)=>{
 /* Actualizar estudiantes */
 app.patch('/estudiantes/:estudianteId',(req,res)=>{
     const estId = Number(req.params.estudianteId);
-    const {nombre,major,email} = req.body;
-    const sql = 'UPDATE estudiantes SET nombre=$1,major=$2,email=$3 WHERE "estudianteId"=$4';
-    pool.query(sql,[nombre,major,email,estId],(error,resultado)=>{
+    const {nombre,asignatura,email} = req.body;
+    const sql = 'UPDATE estudiantes SET nombre=$1,asignatura=$2,email=$3 WHERE "estudiantesId"=$4';
+    pool.query(sql,[nombre,asignatura,email,estId],(error,resultado)=>{
         if(error) return res.json(error);
         return res.status(200).send(`El estudiante ha sido actualizado por el codigo: ${estId}`);
     })
@@ -78,7 +78,7 @@ app.patch('/estudiantes/:estudianteId',(req,res)=>{
 /* Eliminar estudiantes */
 app.delete('/estudiantes/:estudianteId', (req, res)=>{
     const estId = Number(req.params.estudianteId);
-    const sql = 'DELETE FROM estudiantes WHERE "estudianteId"= $1';
+    const sql = 'DELETE FROM estudiantes WHERE "estudiantesId"= $1';
     pool.query(sql,[estId],(error, resultado)=>{
         if(error) return res.json(error);
         return res.status(200).send(`El estudiante ha sido eliminado por el codigo: ${estId}`);
